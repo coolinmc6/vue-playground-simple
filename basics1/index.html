@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Basics #1</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        .profile {
+            border: 1px solid black;
+            margin: 25px;
+            display: block;
+        }
+        .complete {
+            text-decoration: line-through;
+        }
+
+        .name-form {
+            max-width: 350px;
+            background-color: #b7e7f7;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ title }} <span @click="toggleOpen" style="cursor: pointer">&#9998;</span></h1>
+        <form v-if="open" @submit.prevent class="name-form">
+            <label for="name">Name</label>
+            <input name="name" v-model="name" type="text" />
+            <br /><br />
+            <button @click="cancel">Close</button>
+        </form>
+        <img v-bind:src="image" :class="iClass"/>
+
+        <todo-form @add-todo="addToDo"></todo-form>
+        <img v-if="todos.length === 0" src="https://placehold.it/600x100?text=No+ToDos+Added" />
+        <div class="todo-parent">
+            <div v-for="(todo, index) in todos">
+                <!-- <div :class="{ complete: todo.completed }" @click="toggleToDo(index)">{{ todo.text }}</div> -->
+                <todo-component 
+                    :todo="todo"
+                    :index="index"
+                    @toggle-todo="toggleToDo"
+                ></todo-component>
+            </div>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
