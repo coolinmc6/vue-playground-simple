@@ -1,6 +1,7 @@
 
 # Vue Playground
 
+## Basics 1
 Goal of this repo is to learn Vue. Here are some of the main concepts I want to explore:
 - Attribute Binding
     - image in basic1
@@ -12,6 +13,7 @@ Goal of this repo is to learn Vue. Here are some of the main concepts I want to 
     - todo click handler
 - Class & Style Binding
     - we've changed styling if it is completed
+    - [https://vuejs.org/v2/guide/class-and-style.html](https://vuejs.org/v2/guide/class-and-style.html)
 - Computed Properties
     - title and image
 - Components
@@ -24,3 +26,8 @@ Goal of this repo is to learn Vue. Here are some of the main concepts I want to 
     - separate app
 
 I will be building a very basic ToDo app.
+
+## Basics 2
+
+- Simple Vuex implementation: https://vuex.vuejs.org/guide/#the-simplest-store
+- Complete the Vuex simple store implementation and update it for the ToDo app
