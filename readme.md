@@ -31,3 +31,4 @@ I will be building a very basic ToDo app.
 
 - Simple Vuex implementation: https://vuex.vuejs.org/guide/#the-simplest-store
 - Complete the Vuex simple store implementation and update it for the ToDo app
+    - here is their example [Counter](https://jsfiddle.net/n9jmu5v7/1269/) Vuex app

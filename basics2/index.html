@@ -12,10 +12,16 @@
 <body>
     <div id="app">
         <h1>Hello, {{ name }}</h1>
+        <!-- Count part of the app -->
         <div>
             <button @click="decrement">-</button>
             <span>{{ count }}</span>
             <button @click="increment">+</button>
+        </div>
+
+        <!-- ToDos -->
+        <div v-for="(todo, index) in myTodos">
+            <div>{{ todo.text }}</div>
         </div>
     </div>
     <script src="./main.js"></script>
