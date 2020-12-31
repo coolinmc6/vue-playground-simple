@@ -6,7 +6,11 @@
     <title>Vue Basics #1</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://unpkg.com/vuex@3.0.1"></script>
+    
     <style>
+        .complete {
+            text-decoration: line-through;
+        }
     </style>
 </head>
 <body>
@@ -19,11 +23,15 @@
             <button @click="increment">+</button>
         </div>
 
+        <!-- ToDo Form -->
+        <todo-form @add-todo="addToDo"></todo-form>
+
         <!-- ToDos -->
         <div v-for="(todo, index) in myTodos">
-            <div>{{ todo.text }}</div>
+            <todo-component :todo="todo" :index="index" @toggle-todo="toggleToDo"></todo-component>
         </div>
     </div>
     <script src="./main.js"></script>
+    <script src="../navigation.js"></script>
 </body>
 </html>

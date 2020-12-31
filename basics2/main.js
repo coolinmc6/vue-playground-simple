@@ -19,6 +19,55 @@ const store = new Vuex.Store({
     },
     decrement(state) {
       state.count--;
+    },
+    toggleToDo(state, index) {
+      state.todos[index].completed = !state.todos[index].completed;
+    },
+    addToDo(state, obj) {
+      state.todos.push(obj);
+    }
+  }
+})
+
+Vue.component('todo-component', {
+  template: `<div @click="handleClick(index)" :class="{ complete: todo.completed }">{{ todo.text }}</div>`,
+  props: {
+    todo: {
+      type: Object,
+      required: true,
+    },
+    index: {
+      type: Number,
+      required: true,
+    },
+  },
+  methods: {
+    handleClick(index) {
+      this.$emit('toggle-todo', index)
+    }
+  }
+})
+
+Vue.component('todo-form', {
+  template: `
+    <form @submit.prevent="handleSubmit">
+        <input type="text" v-model="text" placeholder="Enter your todo item" />
+        <button>Add ToDo</button>
+    </form>
+  `,
+  data() {
+    return {
+      text: ''
+    }
+  },
+  methods: {
+    handleSubmit() {
+      const obj = {
+        text: this.text,
+        completed: false
+      }
+      this.$emit('add-todo', obj)
+      this.text = '';
     }
   }
 })
@@ -36,7 +85,12 @@ var app = new Vue({
     decrement() {
       this.$store.commit('decrement')
     },
-
+    toggleToDo(index) {
+      this.$store.commit('toggleToDo', index)
+    },
+    addToDo(obj) {
+      this.$store.commit('addToDo', obj)
+    }
   },
   computed: {
     count() {
