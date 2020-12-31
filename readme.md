@@ -1,6 +1,7 @@
 
 # Vue Playground
 
+View [live](https://coolinmc6.github.io/vue-playground-simple/)
 ## Basics 1
 Goal of this repo is to learn Vue. Here are some of the main concepts I want to explore:
 - Attribute Binding
