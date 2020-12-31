@@ -5,13 +5,13 @@
 
   const parent = document.createElement('div')
   const body = document.body
-  console.log(body)
+  const local = window.location.host !== 'coolinmc6.github.io'
   pages.map(page => {
     const a = document.createElement('a')
     a.innerText = page
     
     if(page !== current) {
-      a.href = window.location.origin + '/' + page
+      a.href = local ? window.location.origin + '/' + page : window.location.origin + '/vue-playground-simple/' + page
       a.style = "display: inline-block; padding: 4px; color: white; border-radius: 2px; border: 1px solid #0984e3; margin: 3px; background-color: #0984e3; text-decoration: none"
     } else {
       a.style = "display: inline-block; padding: 4px; color: white; border-radius: 2px; border: 1px solid #ccc; margin: 3px; background-color: #ccc"
